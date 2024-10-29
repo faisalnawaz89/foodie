@@ -1,5 +1,5 @@
 import foodModel from "../models/FoodModel.js";
-import fs from 'fs'
+import fs from 'fs';
 
 //Add food Items
 const addFood = async (req,res) => {
@@ -32,7 +32,7 @@ const listFood = async (req,res) => {
         console.log(error)
         res.json({
             success:false,
-            message:'Error while Fetching data!'
+            message:'Error! while Fetching data.'
         })
     }
 }
@@ -45,13 +45,13 @@ const removeFood = async (req,res) => {
         await foodModel.findByIdAndDelete(req.body.id);
         res.json({
             success:true,
-            message:"Remove your food item from the database"
+            message:"Remove food item from the database."
         })
     } catch (error) {
         console.log(error)
         res.json({
             success:false,
-            message:"Unable to remove food item from the database"
+            message:"Unable to remove food item!"
         })
     }
 }

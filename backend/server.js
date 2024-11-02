@@ -9,8 +9,6 @@ import orderRouter from "./routes/orderRoute.js";
 
 // App config
 const app = express();
-const port = process.env.PORT || 4000;
-const hostUrl = process.env.HOST_URL || `http://localhost:${port}`;
 
 // Middleware 
 app.use(express.json());
@@ -22,16 +20,13 @@ connectDB();
 // Routes
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads'))
-app.use('/api/user', userRouter)
-app.use('/api/cart', cartRouter)
-app.use('/api/order', orderRouter)
-
+app.use('/api/user', userRouter);
+app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
 
 app.get("/", (req, res) => {
     res.send("API Working!");
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server started on ${hostUrl}`);
-});
+// Export the Express app
+export default app;

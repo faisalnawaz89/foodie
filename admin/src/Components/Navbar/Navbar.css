@@ -16,4 +16,6 @@
 .logout{
     font-size: 16px;
     font-weight: 500;
+    background: transparent;
+    border: 0;
 }

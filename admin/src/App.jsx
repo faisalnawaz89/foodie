@@ -7,6 +7,8 @@ import Orders from './Pages/Orders/Orders'
 import List from './Pages/List/List'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
+import LoginSignup from './Components/Login/Login'
 
 const App = () => {
 
@@ -20,9 +22,10 @@ const App = () => {
       <div className="app-content">
         <Sidebar/>
         <Routes>
-            <Route path="/add" element={<Add url={url} /> } />
-            <Route path="/list" element={<List url={url} />} />
-            <Route path="/orders" element={<Orders url={url} />}/>
+            <Route path='/login' element={<LoginSignup url={url}/>} />
+            <Route path="/add" element={<PrivateRoute element={<Add url={url} />} />} />
+            <Route path="/list" element={<PrivateRoute element={<List url={url} />} />} />
+            <Route path="/orders" element={<PrivateRoute element={<Orders url={url} />} />} />
         </Routes>
       </div>
     </div>
